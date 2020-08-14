@@ -5,11 +5,10 @@
 
 class Shape {
 public:
-    Shape(double c = 0, double d = 0) { a= std::make_shared<double>(c); b= std::make_shared<double>(d); };
+    Shape(double c = 0, double d = 0) { a=c, b=d; };
      virtual double area()=0;
 protected: 
-    std::shared_ptr<double> a;
-    std::shared_ptr<double> b;
+    double a,b;
   
     };
 
@@ -17,7 +16,7 @@ class Square : public Shape {
 public:
     Square(double c, double d) : Shape(c, d) {};
     double area() {
-        return (*a**b);
+        return (a*b);
       }
 
 };
@@ -26,7 +25,7 @@ class Rectangle : public Shape {
 public:
     Rectangle(double c, double d) : Shape(c, d) {};
     double area() {
-        return (*a **b);
+        return (a *b);
     }
 };
 
@@ -34,7 +33,7 @@ class Circle : public Shape {
 public:
     Circle(double c) : Shape(c) {};
     double area() {
-        return (3.14* *a **a);
+        return (3.14* a *a);
     }
 };
 
@@ -42,7 +41,7 @@ class Triangle : public Shape {
 public:
     Triangle(double c, double d) : Shape(c, d) {}; //c- height, d-width
     double area() {
-        return (*a * *b / 2);
+        return (a * b / 2);
     }
 
 };
